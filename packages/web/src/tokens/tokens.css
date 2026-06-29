@@ -1,0 +1,77 @@
+/*
+ * tokens.css — the single source of truth for Planix CSS custom properties.
+ * Values copied verbatim from docs/DESIGN_SYSTEM.md.
+ *
+ * Rule (CLAUDE.md #2): no hardcoded hex in component code. Components reference
+ * these variables only. The [data-theme="light"] block overrides the dark
+ * defaults. Dark mode is the default.
+ */
+
+:root {
+  /* --- Background Layers --- */
+  --px-bg-base: #0d1625;      /* outermost page background */
+  --px-bg-shell: #111929;     /* sidebar + top bar (unified chrome) */
+  --px-bg-surface: #141e30;   /* cards, panels, content containers */
+  --px-bg-elevated: #1a2640;  /* hover states, metric cards, dropdowns */
+  --px-bg-overlay: #222f4a;   /* modals, popovers, tooltips */
+
+  /* --- Brand and Accent --- */
+  --px-teal-500: #00bcd4;     /* primary interactive accent */
+  --px-teal-300: #4dd6e8;     /* hover state */
+  --px-teal-700: #0097a7;     /* active/pressed state */
+  --px-teal-900-bg: #003540;  /* teal background tint (active nav, info cards) */
+  --px-gold-500: #f9a825;     /* warning accent, PM Coach indicator */
+  --px-gold-900-bg: #2d2000;  /* gold background tint */
+
+  /* --- Status Colors — SACRED. Never override with brand colors. --- */
+  --px-green-500: #4caf50;    /* on track / complete */
+  --px-amber-500: #ffc107;    /* at risk / warning */
+  --px-red-500: #f44336;      /* overdue / critical */
+  --px-gray-500: #546e7a;     /* not started */
+  --px-orange-500: #ff7043;   /* blocked */
+  --px-purple-500: #7e57c2;   /* on hold */
+  /* in progress uses --px-teal-500 */
+
+  /* --- Text Colors --- */
+  --px-text-primary: #e8edf5;
+  --px-text-secondary: #8a9bb5;
+  --px-text-tertiary: #556175;
+  --px-text-inverse: #0d1625; /* text on colored backgrounds */
+  --px-text-accent: #00bcd4;  /* links, interactive labels */
+
+  /* --- Borders --- */
+  --px-border-subtle: rgba(255, 255, 255, 0.06);
+  --px-border-default: rgba(255, 255, 255, 0.12);
+  --px-border-strong: rgba(255, 255, 255, 0.24);
+  --px-border-accent: #00bcd4;
+
+  /* --- Typography --- */
+  --px-font-ui: 'Inter', system-ui, -apple-system, sans-serif;
+  --px-font-mono: 'JetBrains Mono', Menlo, Consolas, monospace;
+
+  /* --- Shell layout dimensions --- */
+  --px-sidebar-width: 220px;
+  --px-topbar-height: 52px;
+}
+
+[data-theme='light'] {
+  /* --- Background Layers --- */
+  --px-bg-base: #f0f2f5;
+  --px-bg-shell: #f8fafb;
+  --px-bg-surface: #ffffff;
+  --px-bg-elevated: #f4f6f8;
+  --px-bg-overlay: #eef0f4;
+
+  /* --- Text Colors --- */
+  --px-text-primary: #1a2640;
+  --px-text-secondary: #4a5568;
+  --px-text-tertiary: #718096;
+  --px-text-inverse: #ffffff;
+  --px-text-accent: #0097a7;
+
+  /* --- Borders --- */
+  --px-border-subtle: rgba(0, 0, 0, 0.06);
+  --px-border-default: rgba(0, 0, 0, 0.12);
+  --px-border-strong: rgba(0, 0, 0, 0.24);
+  --px-border-accent: #0097a7;
+}

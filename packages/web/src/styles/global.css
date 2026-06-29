@@ -1,0 +1,60 @@
+/* Global base styles. Token definitions live in tokens.css (imported first). */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--px-font-ui);
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--px-text-primary);
+  background-color: var(--px-bg-base);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/*
+ * The mode toggle animates background-color and color ONLY (DESIGN_SYSTEM.md:
+ * 150ms ease, no layout shift). Applied broadly so the whole shell transitions
+ * together when data-theme flips.
+ */
+* {
+  transition: background-color 150ms ease, color 150ms ease;
+}
+
+a {
+  color: var(--px-text-accent);
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+}
+
+/* Always-visible focus ring: 2px teal, 2px offset. Never remove without a
+   replacement (DESIGN_SYSTEM.md accessibility). */
+:focus-visible {
+  outline: 2px solid var(--px-teal-500);
+  outline-offset: 2px;
+}
+
+/* Respect reduced motion: all transitions reduce to 0ms.
+   This is the only place !important is permitted (DESIGN_SYSTEM.md rule #4). */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0ms !important;
+    animation-duration: 0ms !important;
+  }
+}

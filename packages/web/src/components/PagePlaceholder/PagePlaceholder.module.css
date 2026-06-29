@@ -1,0 +1,25 @@
+.header {
+  margin-bottom: 24px;
+}
+
+.title {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--px-text-primary);
+}
+
+.subtitle {
+  margin: 4px 0 0;
+  font-size: 14px;
+  color: var(--px-text-secondary);
+}
+
+.card {
+  background-color: var(--px-bg-surface);
+  border: 1px solid var(--px-border-subtle);
+  border-radius: 8px;
+  padding: 24px;
+  color: var(--px-text-secondary);
+  font-size: 14px;
+}

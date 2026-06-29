@@ -1,0 +1,76 @@
+# Planix stack for Coolify (CHR internal hardware).
+#
+# Coolify builds planix-api and planix-web from their package Dockerfiles on
+# push to main (webhook), runs migrations before swapping containers, and routes
+# traffic via its built-in Traefik. Secrets (DB creds, JWT secret, Anthropic key,
+# Garage keys, SMTP creds) are set in Coolify's UI, never committed.
+services:
+  planix-db:
+    image: postgres:15-alpine
+    container_name: planix-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${PGUSER}
+      POSTGRES_PASSWORD: ${PGPASSWORD}
+      POSTGRES_DB: ${PGDATABASE}
+    volumes:
+      - planix-db-data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  planix-garage:
+    image: dxflrs/garage:v2.3.0
+    container_name: planix-garage
+    restart: unless-stopped
+    ports:
+      - "3900:3900"   # S3 API
+      - "3903:3903"   # Admin API
+    volumes:
+      - ./garage.toml:/etc/garage.toml:ro
+      - garage-meta:/var/lib/garage/meta
+      - garage-data:/var/lib/garage/data
+
+  planix-api:
+    build:
+      context: ../..
+      dockerfile: packages/api/Dockerfile
+    container_name: planix-api
+    restart: unless-stopped
+    depends_on:
+      - planix-db
+      - planix-garage
+    environment:
+      NODE_ENV: production
+      API_PORT: 3000
+      DATABASE_URL: ${DATABASE_URL}
+      JWT_SECRET: ${JWT_SECRET}
+      AZURE_AD_TENANT_ID: ${AZURE_AD_TENANT_ID}
+      AZURE_AD_CLIENT_ID: ${AZURE_AD_CLIENT_ID}
+      AZURE_AD_API_AUDIENCE: ${AZURE_AD_API_AUDIENCE}
+      GARAGE_ENDPOINT: http://planix-garage:3900
+      GARAGE_ACCESS_KEY: ${GARAGE_ACCESS_KEY}
+      GARAGE_SECRET_KEY: ${GARAGE_SECRET_KEY}
+      SMTP_HOST: ${SMTP_HOST}
+      SMTP_PORT: ${SMTP_PORT}
+      SMTP_USER: ${SMTP_USER}
+      SMTP_PASS: ${SMTP_PASS}
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY}
+      ANTHROPIC_MODEL: ${ANTHROPIC_MODEL}
+    ports:
+      - "3000:3000"
+
+  planix-web:
+    build:
+      context: ../..
+      dockerfile: packages/web/Dockerfile
+    container_name: planix-web
+    restart: unless-stopped
+    depends_on:
+      - planix-api
+    ports:
+      - "8080:80"
+
+volumes:
+  planix-db-data:
+  garage-meta:
+  garage-data:

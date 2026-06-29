@@ -1,0 +1,30 @@
+{
+  "name": "planix",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Planix — multi-departmental project management for CHR Solutions",
+  "engines": {
+    "node": ">=20"
+  },
+  "workspaces": [
+    "packages/shared",
+    "packages/api",
+    "packages/web"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces --if-present",
+    "dev:api": "npm run dev --workspace @planix/api",
+    "dev:web": "npm run dev --workspace @planix/web",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "lint": "npm run lint --workspaces --if-present",
+    "migrate": "npm run migrate --workspace @planix/api",
+    "migrate:rollback": "npm run migrate:rollback --workspace @planix/api",
+    "migrate:status": "npm run migrate:status --workspace @planix/api"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^8.18.0",
+    "@typescript-eslint/parser": "^8.18.0",
+    "eslint": "^8.57.1",
+    "typescript": "^5.7.2"
+  }
+}

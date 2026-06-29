@@ -1,0 +1,55 @@
+{
+  "app": {
+    "name": "CHR Solutions"
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "projects": "Projects",
+    "myTasks": "My Tasks",
+    "team": "Team",
+    "calendar": "Calendar",
+    "reports": "Reports",
+    "settings": "Settings",
+    "sectionMain": "Main",
+    "sectionWorkspace": "Workspace"
+  },
+  "topbar": {
+    "search": "Search",
+    "toggleToLight": "Switch to light mode",
+    "toggleToDark": "Switch to dark mode",
+    "notifications": "Notifications",
+    "account": "Account"
+  },
+  "pages": {
+    "dashboard": {
+      "title": "Dashboard",
+      "subtitle": "Your work at a glance",
+      "placeholder": "Dashboard content arrives in a later phase."
+    },
+    "projects": {
+      "title": "Projects",
+      "subtitle": "All active projects",
+      "placeholder": "Project list arrives in a later phase."
+    }
+  },
+  "auth": {
+    "login": {
+      "title": "Sign in",
+      "subtitle": "Use your CHR Solutions account",
+      "ssoButton": "Sign in with Microsoft",
+      "portalLink": "Customer? Sign in to the portal"
+    },
+    "portal": {
+      "title": "Customer Portal",
+      "subtitle": "Sign in to view your projects",
+      "emailLabel": "Email",
+      "passwordLabel": "Password",
+      "submit": "Sign in",
+      "internalLink": "CHR staff? Sign in here"
+    }
+  },
+  "common": {
+    "loading": "Loading…",
+    "comingSoon": "Coming soon"
+  }
+}

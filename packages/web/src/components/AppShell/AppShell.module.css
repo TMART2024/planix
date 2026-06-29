@@ -1,0 +1,21 @@
+.shell {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  /* Both sidebar and top bar use --px-bg-shell; the base is the content zone. */
+  background-color: var(--px-bg-base);
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+
+.content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px;
+  background-color: var(--px-bg-base);
+}

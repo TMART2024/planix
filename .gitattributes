@@ -1,0 +1,13 @@
+# Normalize line endings. Repo stores LF; checkouts on Windows may use CRLF,
+# but text committed is always LF so Linux builds (Coolify) and shell scripts work.
+* text=auto eol=lf
+
+# Shell scripts MUST be LF or they fail on Linux.
+*.sh text eol=lf
+
+# Treat lockfiles and common binaries appropriately.
+package-lock.json -diff
+*.png binary
+*.jpg binary
+*.ico binary
+*.woff2 binary

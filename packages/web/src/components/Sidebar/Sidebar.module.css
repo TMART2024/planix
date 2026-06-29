@@ -1,0 +1,73 @@
+.sidebar {
+  width: var(--px-sidebar-width);
+  flex-shrink: 0;
+  background-color: var(--px-bg-shell);
+  /* The sole visual separator between sidebar and content (DESIGN_SYSTEM #10). */
+  border-right: 1px solid var(--px-border-subtle);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.brand {
+  height: var(--px-topbar-height);
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--px-text-primary);
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  padding: 8px 8px 16px;
+  gap: 2px;
+}
+
+.sectionLabel {
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--px-text-tertiary);
+  padding: 12px 12px 6px;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 36px;
+  padding: 0 12px;
+  border-radius: 6px;
+  /* 3px transparent left border so the active border doesn't shift layout. */
+  border-left: 3px solid transparent;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--px-text-tertiary);
+  cursor: pointer;
+  user-select: none;
+}
+
+.item:hover {
+  background-color: rgba(255, 255, 255, 0.04);
+  color: var(--px-text-primary);
+}
+
+.itemActive {
+  border-left: 3px solid var(--px-teal-500);
+  background-color: var(--px-teal-900-bg);
+  color: var(--px-teal-300);
+}
+
+.itemActive:hover {
+  color: var(--px-teal-300);
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
