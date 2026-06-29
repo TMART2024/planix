@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { BrandMark } from '../BrandMark/BrandMark';
 import styles from './Sidebar.module.css';
 
 interface NavItem {
@@ -62,7 +63,9 @@ export function Sidebar(): JSX.Element {
   const { t } = useTranslation();
   return (
     <aside className={styles.sidebar} aria-label={t('nav.sectionMain')}>
-      <div className={styles.brand}>{t('app.name')}</div>
+      <div className={styles.brand}>
+        <BrandMark withTagline />
+      </div>
       <nav className={styles.nav}>
         <NavSection titleKey="nav.sectionMain" items={mainItems} />
         <NavSection titleKey="nav.sectionWorkspace" items={workspaceItems} />

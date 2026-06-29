@@ -1,6 +1,8 @@
 {
   "app": {
-    "name": "CHR Solutions"
+    "name": "Planix",
+    "tagline": "by CHR Solutions",
+    "orgName": "CHR Solutions"
   },
   "nav": {
     "dashboard": "Dashboard",

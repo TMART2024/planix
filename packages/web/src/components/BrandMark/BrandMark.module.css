@@ -1,0 +1,53 @@
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.mark {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+}
+
+.tile {
+  fill: var(--px-teal-500);
+}
+
+.bar {
+  fill: var(--px-text-inverse);
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.word {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--px-text-primary);
+}
+
+.tagline {
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--px-text-secondary);
+  margin-top: 2px;
+}
+
+/* Larger variant for the login screens. */
+.large .mark {
+  width: 40px;
+  height: 40px;
+}
+
+.large .word {
+  font-size: 24px;
+}
+
+.large .tagline {
+  font-size: 12px;
+}

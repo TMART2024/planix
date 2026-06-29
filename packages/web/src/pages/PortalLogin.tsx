@@ -22,7 +22,9 @@ export function PortalLogin(): JSX.Element {
           // Submission wired in the portal session flow.
         }}
       >
-        <p className={styles.brand}>{t('app.name')}</p>
+        {/* Customer-facing: NEVER show the Planix brand here (CLAUDE.md rule #4).
+            Uses the org / white-label name only. */}
+        <p className={styles.brand}>{t('app.orgName')}</p>
         <h1 className={styles.title}>{t('auth.portal.title')}</h1>
         <p className={styles.subtitle}>{t('auth.portal.subtitle')}</p>
 

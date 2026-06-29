@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { BrandMark } from '../components/BrandMark/BrandMark';
 import styles from './Login.module.css';
 
 /*
@@ -12,7 +13,9 @@ export function Login(): JSX.Element {
   return (
     <div className={styles.wrap}>
       <div className={styles.card}>
-        <p className={styles.brand}>{t('app.name')}</p>
+        <div className={styles.brand}>
+          <BrandMark size="large" withTagline />
+        </div>
         <h1 className={styles.title}>{t('auth.login.title')}</h1>
         <p className={styles.subtitle}>{t('auth.login.subtitle')}</p>
         <button type="button" className={styles.primaryButton}>
